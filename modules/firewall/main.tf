@@ -28,16 +28,3 @@ resource "google_compute_firewall" "allow-ssh" {
   target_tags   = ["http-server2"]
   source_ranges = ["0.0.0.0/0"]
 }
-resource "google_compute_firewall" "allow-https" {
-  name    = "${local.network}-allow-https"
-  network = "${local.network}"
-  project = "${var.project}"
-
-  allow {
-    protocol = "tcp"
-    ports    = ["443"]
-  }
-
-  target_tags   = ["http-server2"]
-  source_ranges = ["0.0.0.0/0"]
-}
